@@ -1,0 +1,224 @@
+(footprint "FT2D-VM"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "f1d92a4e-5be3-4c23-a104-882329fa3f78")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "FT2D-VM"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8112caef-d58c-4ad6-9700-1bfef07fdaff")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d6cd8f15-f208-4c51-88b0-72e759a9f521")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "17ba1857-5727-4055-b493-776da110a17a")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9dd28262-c2a4-4b09-a27b-fd6688a1e0a0")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -5.83 -2.39)
+		(end -5.83 -1.78)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "98afd582-b356-4431-b95a-9a2145a6294d")
+	)
+	(fp_line
+		(start -5.83 -2.39)
+		(end 0.06 -2.39)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "9a1a92ae-1842-4b35-b37a-21440adc234a")
+	)
+	(fp_line
+		(start -5.83 1.8)
+		(end -5.83 2.41)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "79e4776b-496c-42e4-b609-7ceaffe97207")
+	)
+	(fp_line
+		(start -5.83 2.41)
+		(end 0.02 2.41)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "f36d3ff4-6c45-4cf3-916f-aeb919e51031")
+	)
+	(fp_line
+		(start -8 -2.8)
+		(end -8 2.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "ef46ae1a-1527-4985-b525-dc4e1c119894")
+	)
+	(fp_line
+		(start -8 -2.8)
+		(end 6.35 -2.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "0750f27e-d2ac-4ba2-9c3e-ce8eb288f4c7")
+	)
+	(fp_line
+		(start -8 2.8)
+		(end 6.35 2.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "8d11f093-d3a9-4e9e-81aa-5dc7a2ad5978")
+	)
+	(fp_line
+		(start 6.35 -2.8)
+		(end 6.35 2.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "33fe69be-9b33-486a-9d65-dfc90306e8a8")
+	)
+	(pad "1" thru_hole circle
+		(at 0 1.27)
+		(size 2 2)
+		(drill 0.7)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "370c3549-6b74-4119-879b-25391dbfe89d")
+	)
+	(pad "2" thru_hole circle
+		(at 2.54 1.27)
+		(size 2 2)
+		(drill 0.7)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "1158b8c1-5a84-4bb3-8afe-82e9cd3b9ba0")
+	)
+	(pad "3" thru_hole circle
+		(at 5.08 1.27)
+		(size 2 2)
+		(drill 0.7)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "210b4585-16ce-4849-8cf3-e6efc18e9dc2")
+	)
+	(pad "4" thru_hole circle
+		(at 0 -1.27)
+		(size 2 2)
+		(drill 0.7)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "a834693b-a46d-4473-a07d-06341a082619")
+	)
+	(pad "5" thru_hole circle
+		(at 2.54 -1.27)
+		(size 2 2)
+		(drill 0.7)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "8861030f-b075-4284-84c3-ca2d0aa849af")
+	)
+	(pad "6" thru_hole circle
+		(at 5.08 -1.27)
+		(size 2 2)
+		(drill 0.7)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "260ab3d6-e290-4b6d-adf8-ae8b71a96bfb")
+	)
+	(pad "7" thru_hole circle
+		(at -5.08 1.27)
+		(size 1.5 1.5)
+		(drill 0.7)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "1084df75-22fe-45d0-8439-cefe6026a903")
+	)
+	(pad "8" thru_hole circle
+		(at -5.08 -1.27)
+		(size 1.5 1.5)
+		(drill 0.7)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "09ef20b6-827e-4519-ac2c-6bf00e209b55")
+	)
+	(model "${KIPRJMOD}/lib/3D/FT2D_VM.STEP"
+		(offset
+			(xyz -3.7 0.7 4)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 90 -180 -90)
+		)
+	)
+)
