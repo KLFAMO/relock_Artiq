@@ -18,7 +18,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -45,26 +44,17 @@
 
 /* Private variables ---------------------------------------------------------*/
 
-UART_HandleTypeDef huart4;
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart3;
-UART_HandleTypeDef huart6;
 
-/* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
-const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
-/* Definitions for interfaceTask */
-osThreadId_t interfaceTaskHandle;
-const osThreadAttr_t interfaceTask_attributes = {
-  .name = "interfaceTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
-};
 /* USER CODE BEGIN PV */
+uint8_t rxChar;
+  uint8_t rxBuffer[BUFFER_SIZE];
+  uint8_t txBuffer[BUFFER_SIZE];
+  uint8_t tmpBuffer[BUFFER_SIZE];
+  uint16_t index = 0;
+  uint8_t helloMsg[] = "\nADDA>";
+  HAL_StatusTypeDef status;
 
 
 void Flash_Write_Params(uint32_t address, parameters *data) {
@@ -117,12 +107,7 @@ uint32_t Flash_Read_Version(uint32_t address) {
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART3_UART_Init(void);
-static void MX_UART4_Init(void);
 static void MX_USART1_UART_Init(void);
-static void MX_USART6_UART_Init(void);
-void StartDefaultTask(void *argument);
-void StartInterfaceTask(void *argument);
-
 /* USER CODE BEGIN PFP */
 void SendSpiMesToDac(uint32_t);
 void SetDAC(uint8_t channel, uint16_t value);
@@ -168,9 +153,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART3_UART_Init();
-  MX_UART4_Init();
   MX_USART1_UART_Init();
-  MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
 
   initInterface();
@@ -185,49 +168,30 @@ int main(void)
 
   /* USER CODE END 2 */
 
-  /* Init scheduler */
-  osKernelInitialize();
-
-  /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
-  /* USER CODE END RTOS_MUTEX */
-
-  /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
-  /* USER CODE END RTOS_SEMAPHORES */
-
-  /* USER CODE BEGIN RTOS_TIMERS */
-  /* start timers, add new ones, ... */
-  /* USER CODE END RTOS_TIMERS */
-
-  /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
-  /* USER CODE END RTOS_QUEUES */
-
-  /* Create the thread(s) */
-  /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
-
-  /* creation of interfaceTask */
-  interfaceTaskHandle = osThreadNew(StartInterfaceTask, NULL, &interfaceTask_attributes);
-
-  /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
-  /* USER CODE END RTOS_THREADS */
-
-  /* USER CODE BEGIN RTOS_EVENTS */
-  /* add events, ... */
-  /* USER CODE END RTOS_EVENTS */
-
-  /* Start scheduler */
-  osKernelStart();
-
-  /* We should never get here as control is now taken by the scheduler */
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  status = HAL_UART_Receive(&huart1, &rxChar, 1, HAL_MAX_DELAY);
+	  	  	  	  if (status == HAL_OK)
+	  	  	  	  {
+	  	  	  		  if ((rxChar == '\r' || rxChar == '\n') && index>0){
+	  	  	  			  rxBuffer[index++]='\n';
+	  	  	  			  rxBuffer[index++]='\0';
+	  	  	  			  ExtractMessage((char*) rxBuffer, (char*) txBuffer);
+	  //	  	  			  strcpy(tmpBuffer, helloMsg);
+	  	  	  			  strcat(tmpBuffer, txBuffer);
+	  	  	  			  strcpy(txBuffer, tmpBuffer);
+
+	  	  	  			  HAL_UART_Transmit(&huart1, txBuffer, strlen(txBuffer), HAL_MAX_DELAY);
+	  	  	  			  HAL_UART_Transmit(&huart1, helloMsg, strlen(helloMsg), HAL_MAX_DELAY);
+	  	  	  			  index=0;
+	  	  	  		  }
+	  	  	  		  else{
+	  	  	  			  rxBuffer[index++] = rxChar;
+	  	  	  			  if (index >= BUFFER_SIZE) index = 0;
+	  	  	  		  }
+	  	  	  	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -250,7 +214,7 @@ void SystemClock_Config(void)
 
   /** Configure the main internal regulator output voltage
   */
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
 
   while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
 
@@ -268,7 +232,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLR = 2;
   RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_3;
   RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOMEDIUM;
-  RCC_OscInitStruct.PLL.PLLFRACN = 6144;
+  RCC_OscInitStruct.PLL.PLLFRACN = 0;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -291,54 +255,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-}
-
-/**
-  * @brief UART4 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_UART4_Init(void)
-{
-
-  /* USER CODE BEGIN UART4_Init 0 */
-
-  /* USER CODE END UART4_Init 0 */
-
-  /* USER CODE BEGIN UART4_Init 1 */
-
-  /* USER CODE END UART4_Init 1 */
-  huart4.Instance = UART4;
-  huart4.Init.BaudRate = 115200;
-  huart4.Init.WordLength = UART_WORDLENGTH_8B;
-  huart4.Init.StopBits = UART_STOPBITS_1;
-  huart4.Init.Parity = UART_PARITY_NONE;
-  huart4.Init.Mode = UART_MODE_TX_RX;
-  huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart4.Init.OverSampling = UART_OVERSAMPLING_16;
-  huart4.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-  huart4.Init.ClockPrescaler = UART_PRESCALER_DIV1;
-  huart4.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_UART_Init(&huart4) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_SetTxFifoThreshold(&huart4, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_SetRxFifoThreshold(&huart4, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_DisableFifoMode(&huart4) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN UART4_Init 2 */
-
-  /* USER CODE END UART4_Init 2 */
-
 }
 
 /**
@@ -438,54 +354,6 @@ static void MX_USART3_UART_Init(void)
 }
 
 /**
-  * @brief USART6 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_USART6_UART_Init(void)
-{
-
-  /* USER CODE BEGIN USART6_Init 0 */
-
-  /* USER CODE END USART6_Init 0 */
-
-  /* USER CODE BEGIN USART6_Init 1 */
-
-  /* USER CODE END USART6_Init 1 */
-  huart6.Instance = USART6;
-  huart6.Init.BaudRate = 115200;
-  huart6.Init.WordLength = UART_WORDLENGTH_8B;
-  huart6.Init.StopBits = UART_STOPBITS_1;
-  huart6.Init.Parity = UART_PARITY_NONE;
-  huart6.Init.Mode = UART_MODE_TX_RX;
-  huart6.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart6.Init.OverSampling = UART_OVERSAMPLING_16;
-  huart6.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-  huart6.Init.ClockPrescaler = UART_PRESCALER_DIV1;
-  huart6.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_UART_Init(&huart6) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_SetTxFifoThreshold(&huart6, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_SetRxFifoThreshold(&huart6, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_UARTEx_DisableFifoMode(&huart6) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USART6_Init 2 */
-
-  /* USER CODE END USART6_Init 2 */
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -499,19 +367,18 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pin : ES1_Pin */
-  GPIO_InitStruct.Pin = ES1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(ES1_GPIO_Port, &GPIO_InitStruct);
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(TCP_CFG_GPIO_Port, TCP_CFG_Pin, GPIO_PIN_SET);
 
-  /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+  /*Configure GPIO pin : TCP_CFG_Pin */
+  GPIO_InitStruct.Pin = TCP_CFG_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(TCP_CFG_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
@@ -532,81 +399,6 @@ void ExtractMessage(char* rxBuffer, char* txBuffer)
 }
 
 /* USER CODE END 4 */
-
-/* USER CODE BEGIN Header_StartDefaultTask */
-/**
-  * @brief  Function implementing the defaultTask thread.
-  * @param  argument: Not used
-  * @retval None
-  */
-/* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
-{
-  /* USER CODE BEGIN 5 */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END 5 */
-}
-
-/* USER CODE BEGIN Header_StartInterfaceTask */
-/**
-* @brief Function implementing the interfaceTask thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartInterfaceTask */
-void StartInterfaceTask(void *argument)
-{
-  /* USER CODE BEGIN StartInterfaceTask */
-  uint8_t rxChar;
-  uint8_t rxBuffer[BUFFER_SIZE];
-  uint8_t txBuffer[BUFFER_SIZE];
-//  uint8_t tmpBuffer[BUFFER_SIZE];
-  uint16_t index = 0;
-  uint8_t helloMsg[] = "\n3x3A>";
-  HAL_StatusTypeDef status;
-
-  HAL_UART_Transmit(&huart4, helloMsg, strlen(helloMsg), HAL_MAX_DELAY);
-
-  /* Infinite loop */
-  for(;;)
-  {
-	  /* Receive a single character */
-	  status = HAL_UART_Receive(&huart4, &rxChar, 1, HAL_MAX_DELAY);
-	  if (status == HAL_OK)
-	  {
-		  if ((rxChar == '\r' || rxChar == '\n') && index>0){
-			  rxBuffer[index++]='\n';
-			  rxBuffer[index++]='\0';
-			  ExtractMessage((char*) rxBuffer, (char*) txBuffer);
-//			  strcpy(tmpBuffer, helloMsg);
-//			  strcat(tmpBuffer, txBuffer);
-//			  strcpy(txBuffer, tmpBuffer);
-
-			  HAL_UART_Transmit(&huart4, txBuffer, strlen(txBuffer), HAL_MAX_DELAY);
-			  HAL_UART_Transmit(&huart4, helloMsg, strlen(helloMsg), HAL_MAX_DELAY);
-			  index=0;
-		  }
-		  else{
-			  rxBuffer[index++] = rxChar;
-			  if (index >= BUFFER_SIZE) index = 0;
-		  }
-	  }
-
-    if (par.save.val == 1){
-      par.save.val = 0;
-      Flash_Write_Params(FLASH_PARAM_START_ADDR, &par);
-    }
-    if (par.load.val == 1){
-      par.load.val = 0;
-      Flash_Read_Params(FLASH_PARAM_START_ADDR, &par);
-    }
-  }
-  /* USER CODE END StartInterfaceTask */
-}
 
 /**
   * @brief  This function is executed in case of error occurrence.

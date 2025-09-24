@@ -61,17 +61,12 @@ void Error_Handler(void);
 #define STLINK_RX_GPIO_Port GPIOD
 #define STLINK_TX_Pin GPIO_PIN_9
 #define STLINK_TX_GPIO_Port GPIOD
-#define TXD2_Pin GPIO_PIN_6
-#define TXD2_GPIO_Port GPIOC
-#define RXD2_Pin GPIO_PIN_7
-#define RXD2_GPIO_Port GPIOC
-#define ES1_Pin GPIO_PIN_8
-#define ES1_GPIO_Port GPIOA
-#define ES1_EXTI_IRQn EXTI9_5_IRQn
-#define TXD1_Pin GPIO_PIN_9
-#define TXD1_GPIO_Port GPIOA
-#define RXD1_Pin GPIO_PIN_10
-#define RXD1_GPIO_Port GPIOA
+#define TCP_CFG_Pin GPIO_PIN_0
+#define TCP_CFG_GPIO_Port GPIOD
+#define TXD1_Pin GPIO_PIN_6
+#define TXD1_GPIO_Port GPIOB
+#define RXD1_Pin GPIO_PIN_7
+#define RXD1_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

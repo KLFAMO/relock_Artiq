@@ -162,11 +162,10 @@
       },
       "teardrop_options": [
         {
-          "td_onpthpad": true,
+          "td_onpadsmd": true,
           "td_onroundshapesonly": false,
-          "td_onsmdpad": true,
           "td_ontrackend": false,
-          "td_onvia": true
+          "td_onviapad": true
         }
       ],
       "teardrop_parameters": [
@@ -290,12 +289,7 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [
-      [
-        "multiple_net_names|228600|1098550|adcf7f26-06d8-401c-9f8c-fd7772f05b05|43b099cd-0ed8-4d84-b59e-2fd6d24c02c8|/ac2ce573-bebd-4607-93e3-a2017a1434cd/68fd82a0-d48f-4a88-8369-34d671498d77|/ac2ce573-bebd-4607-93e3-a2017a1434cd/68fd82a0-d48f-4a88-8369-34d671498d77|/ac2ce573-bebd-4607-93e3-a2017a1434cd/68fd82a0-d48f-4a88-8369-34d671498d77",
-        ""
-      ]
-    ],
+    "erc_exclusions": [],
     "meta": {
       "version": 0
     },
@@ -521,7 +515,7 @@
   },
   "meta": {
     "filename": "AD DA module v5.kicad_pro",
-    "version": 3
+    "version": 1
   },
   "net_settings": {
     "classes": [
@@ -536,7 +530,6 @@
         "microvia_drill": 0.1,
         "name": "Default",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.3048,
         "via_diameter": 0.6096,
@@ -554,7 +547,6 @@
         "microvia_drill": 0.1,
         "name": "24V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 1.016,
         "via_diameter": 0.889,
@@ -572,7 +564,6 @@
         "microvia_drill": 0.1,
         "name": "3A_1oz",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 1.524,
         "via_diameter": 1.143,
@@ -590,7 +581,6 @@
         "microvia_drill": 0.1,
         "name": "4.2A_1oz",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 2.54,
         "via_diameter": 1.143,
@@ -608,7 +598,6 @@
         "microvia_drill": 0.1,
         "name": "zasilanie 5v",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 3,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.6096,
         "via_diameter": 0.889,
@@ -617,7 +606,7 @@
       }
     ],
     "meta": {
-      "version": 4
+      "version": 3
     },
     "net_colors": null,
     "netclass_assignments": null,
