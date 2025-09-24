@@ -34,3 +34,23 @@ This device is intended for applications requiring remote control of laser param
 ## Current Status
 
 This project is under development, with the hardware currently in production. The documentation here provides an outline of the devices intended functionality, and further details will be added as development progresses.
+
+## TCP232 Module Configuration
+
+To start the board, you need to configure the TCP232 module as follows (for developers):
+
+1. **Initial Connection**  
+   When powered on for the first time, the TCP232 module operates at the default IP address `192.168.0.7` (subnet mask `/24`).  
+   Set up your local network so you can communicate with this address.
+
+2. **Accessing the Configuration Interface**  
+   Connect to the module using a web browser by entering:  
+   `http://192.168.0.7`  
+   This will open the web interface, where you can change network settings, e.g., switch the module to DHCP.
+
+3. **Serial Port Settings**  
+   In the web interface, go to the **Serial Port** tab and set:
+   - **Local Port Number**: `10`
+   - **Work Mode**: `TCP Server`
+
+After saving these settings, the module will be ready to work with the board in this project.
