@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP RJ45-8Z4
+D RJ45-8Z4 M0=F9770
+K
+F https://media.digikey.com/pdf/Data%20Sheets/Tyco%20Electronics%20Corcom%20PDFs/Z_Series.pdf
+$ENDCMP
+#
+#End Doc Library
