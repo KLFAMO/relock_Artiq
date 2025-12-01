@@ -54,3 +54,13 @@ To start the board, you need to configure the TCP232 module as follows (for deve
    - **Work Mode**: `TCP Server`
 
 After saving these settings, the module will be ready to work with the board in this project.
+
+# License
+
+[MIT](https://opensource.org/licenses/MIT)
+
+
+# Acknowledgments
+This work has received funding from the European Partnership on Metrology, co-financed by the European Union’s Horizon Europe Research and Innovation Programme and by the Participating States, under grant number 22IEM01 TOCK.
+
+![badge](images/Acknowledgement%20badge.png)
