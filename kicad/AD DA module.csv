@@ -1,0 +1,107 @@
+Qty;Reference;Value;Footprint;Datasheet;Comm
+1;C1;100u 25V;Capacitor_THT:CP_Radial_D8.0mm_P3.50mm;~;>=5000h, 105°C, Ø8x11,5mm, P3,5mm
+1;C33;MT21N102J101CT;Capacitor_SMD:C_0805_2012Metric;~;1n 100V C0G
+1;C118;100u 16V;Capacitor_Tantalum_SMD:CP_EIA-7343-31_Kemet-D;~;tantal, case D
+1;C132;1n C0G;Capacitor_SMD:C_0603_1608Metric;~;
+1;C139;10n;Capacitor_SMD:C_0603_1608Metric;~;
+3;C123,C128,C131;1n 50V C0G;Capacitor_SMD:C_0603_1608Metric;~;
+4;C127,C129,C130,C133;GRM188R60J476ME15D;Capacitor_SMD:C_0603_1608Metric;~;47u/6V3 X5R
+2;C160,C177;220n 50V C0G;Capacitor_SMD:C_1206_3216Metric;~;
+4;C166,C167,C187,C188;22n 25V C0G;Capacitor_SMD:C_0603_1608Metric;~;
+24;C19,C49,C52,C116,C120,C126,C135,C141,C144,C151,C154,C157,C162,C165,C170,C173,C176,C178,C181,C183,C186,C191,C194,C197;100p 50V C0G;Capacitor_SMD:C_0603_1608Metric;~;
+33;C2,C5,C6,C9,C10,C13,C14,C15,C16,C23,C24,C25,C31,C32,C34,C36,C38,C39,C41,C43,C44,C46,C48,C69,C121,C140,C145,C150,C155,C171,C174,C192,C195;GRM188R61E106KA73D;Capacitor_SMD:C_0603_1608Metric;~;10u 25V X5R
+4;C20,C21,C28,C29;GRM31CR71A226KE15L;Capacitor_SMD:C_1206_3216Metric;~;22u 10V X7R Murata
+6;C22,C30,C99,C100,C107,C108;GRM21BR71A106KA73L;Capacitor_SMD:C_0805_2012Metric;~;10u 10V X7R
+69;C3,C4,C7,C8,C11,C12,C17,C18,C26,C27,C35,C37,C40,C42,C45,C47,C50,C51,C54,C56,C60,C63,C64,C65,C67,C72,C73,C75,C76,C77,C78,C79,C80,C92,C93,C94,C95,C96,C97,C98,C101,C102,C103,C104,C105,C106,C110,C111,C117,C119,C125,C134,C142,C143,C152,C153,C156,C163,C164,C169,C172,C175,C179,C180,C184,C185,C190,C193,C196;100n 50V X7R;Capacitor_SMD:C_0603_1608Metric;~;
+13;C53,C55,C136,C137,C138,C146,C147,C148,C149,C161,C168,C182,C189;10n 50V C0G;Capacitor_SMD:C_0603_1608Metric;~;
+2;C61,C115;15p 50V C0G;Capacitor_SMD:C_0603_1608Metric;~;
+3;C62,C81,C84;4u7 10V X5R;Capacitor_SMD:C_0603_1608Metric;~;
+6;C66,C68,C82,C83,C122,C124;GCM188R71E105KA64J;Capacitor_SMD:C_0603_1608Metric;~;1uF 25V X7R
+2;C70,C71;2u2 10V X7R;Capacitor_SMD:C_0603_1608Metric;~;
+3;C74,C200,C201;GCJ31BR73A102KXJ1L;Capacitor_SMD:C_1206_3216Metric;~;1n 1kV X7R
+2;C85,C86;293D107X9010C2TE3;MY_Library:CP_EIA-7132-28_AVX-C;https://www.tme.eu/Document/b7b423fee79a0baa3802818aefa8a73f/293d.pdf;100u 6,3V tantal case C
+2;C90,C91;82p 50V C0G;Capacitor_SMD:C_0603_1608Metric;~;
+1;D1;SD12C-01FTG;Diode_SMD:D_SOD-323;https://www.littelfuse.com/media?resourcetype=datasheets&itemid=b682d4fa-3733-4cd6-9f7f-7cf1a490030b&filename=littelfuse_tvs_diode_array_sd_c_datasheet.pdf;
+1;D2;WE 8240136;Package_TO_SOT_SMD:SOT-143;https://www.we-online.com/components/products/datasheet/8240136.pdf;or PRTR5V0U2X 
+1;D11;SMAJ24A-TR;Diode_SMD:D_SMA;https://www.tme.eu/Document/331c9211e3d48d45b6ce87daa2587b54/SMAJxxX_ser.pdf;
+4;D3,D4,D5,D6;BAT54WS;Diode_SMD:D_SOD-323F;https://www.tme.eu/Document/3edcf771a0243e04f0aad97d626d294c/bat54ws.pdf;
+4;D7,D8,D9,D10;BAS70JFILM;Diode_SMD:D_SOD-323F;https://www.tme.eu/Document/413cad723698c264adbbd12b01a1beed/BAS70.pdf;
+1;J1;MSTBA2.5/2-G-5.08 1757242;Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal;~;+12V
+1;J2;N2530-6002-RB;Connector_IDC:IDC-Header_2x15_P2.54mm_Vertical;~;
+1;JP11;DS1021-1*2SF11-B;MY_Library:PinHeader_1x02_P2.54mm_Vertical;https://www.tme.com/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf;BOOT0
+5;JP1,JP2,R52,R90,R107;0;Resistor_SMD:R_0603_1608Metric;~;
+3;JP3,JP4,JP5;DS1021-1*3SF11-B;MY_Library:PinHeader_1x03_P2.54mm_Vertical;https://www.tme.com/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf;-- różne wartości --
+1;L3;IHLP2525CZER100M01;MY_Library:L_Vishay_IHLP-2525;https://www.tme.eu/Document/e8f3bd9cae803b662e47460bf3cb03c2/IHLP-2525CZ-01.pdf;10u >3A 6,5x6,5mm
+1;L6;SRN6045-3R3Y;MY_Library:L_Bourns-SRN6028;https://www.tme.eu/Document/1f880a0816342a398e4afea1d40c0a6c/DJNR%206045-SERIES.pdf;3,3u >3A 6x6mm
+1;L8;50225C Murata or 50475C;MY_Library:L_CommonMode_Murata_5000;https://www.murata-ps.com/pub/data/magnetics/kmp_5000c.pdf;4.7mH 400mA
+1;L9;LQM18DN330M70L;Inductor_SMD:L_0603_1608Metric;~;33uH 30mA
+1;L11;Viking NL05JTC330;Inductor_SMD:L_0805_2012Metric;~;33uH 200mA
+2;L1,L10;BLM18KG331SN1D;Inductor_SMD:L_0603_1608Metric;https://www.tme.eu/Document/5de9c910d5fc5204e02d96c24790a15e/MURATA-BLM18K.pdf;Murata Z=330 @100MHz
+2;L2,L5;LQH44PH220MPRL;MY_Library:L_MURATA_LQH44;https://www.tme.eu/Document/842a7f6f2b5cda924b7debf550241590/LQ1E.pdf;22u >0,5A 4x4mm
+2;L4,L7;IHLP2525CZER220M11;MY_Library:L_Vishay_IHLP-2525;https://www.tme.eu/Document/0e26a5354c0a05acf8aecc0d158cbffe/IHLP-2525CZ-11.pdf;22u >2.9A 6.5x6.5mm
+1;LED1;KPA-1606CGCK;MY_Library:KPA1606CGCK;https://www.tme.eu/pl/details/kpa-1606cgck/diody-led-smd-kolorowe/kingbright-electronic/;
+1;R2;30k 1%;Resistor_SMD:R_0603_1608Metric;~;
+1;R3;196k 1%;Resistor_SMD:R_0603_1608Metric;~;
+1;R20;220 1%;Resistor_SMD:R_0603_1608Metric;~;
+1;R47;100 1%;Resistor_SMD:R_0603_1608Metric;~;
+1;R48;2k2 1%;Resistor_SMD:R_0603_1608Metric;~;
+5;R1,R11,R12,R22,R41;10k 1%;Resistor_SMD:R_0603_1608Metric;~;
+2;R13,R23;15k8 1%;Resistor_SMD:R_0603_1608Metric;~;
+2;R14,R24;3k83 1%;Resistor_SMD:R_0603_1608Metric;~;
+16;R15,R25,R26,R27,R28,R29,R30,R31,R32,R35,R36,R37,R38,R39,R40,R50;100R 1%;Resistor_SMD:R_0603_1608Metric;~;
+3;R17,R120,R121;HV732BTTD1004F;Resistor_SMD:R_1206_3216Metric;~;1M 1%
+2;R21,R42;5k36 1%;Resistor_SMD:R_0603_1608Metric;~;
+2;R33,R34;220R 1%;Resistor_SMD:R_0603_1608Metric;~;
+2;R4,R6;0.1 1% 250mW;Resistor_SMD:R_0805_2012Metric;~;
+2;R45,R46;82 1%;Resistor_SMD:R_0603_1608Metric;~;
+2;R5,R7;12k 1%;Resistor_SMD:R_0603_1608Metric;~;
+2;R51,R53;200 0.5%;Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;~;thin film
+5;R54,R58,R59,R68,R69;1k 0.5%;Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;~;thin film
+5;R55,R62,R63,R72,R73;1k2 0.5%;Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;~;thin film
+3;R56,R60,R70;500 0.5%;Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;~;thin film
+8;R61,R71,R82,R86,R91,R99,R103,R108;10 0.5%;Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;~;thin film
+2;R64,R74;820 0.5%;Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;~;thin film
+2;R65,R75;39 0.5%;Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;~;thin film
+2;R66,R76;2k 0.5%;Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;~;thin film
+2;R67,R77;49.9 1%;Resistor_SMD:R_0603_1608Metric;~;
+2;R78,R79;220 0.5%;Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder;~;thin film
+4;R8,R16,R18,R19;1k 1%;Resistor_SMD:R_0603_1608Metric;~;
+2;R80,R97;100k 0.5%;Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;~;thin film
+2;R81,R98;100 0.5%;Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder;~;thin film
+4;R83,R87,R100,R104;1k1 0.5%;Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;~;thin film
+8;R84,R85,R88,R89,R101,R102,R105,R106;475 0.5%;Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;~;thin film
+2;R9,R10;510 1%;Resistor_SMD:R_0603_1608Metric;~;
+4;R92,R93,R109,R110;100 0.5%;Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder;~;thin film
+2;R94,R111;100 5%;Resistor_SMD:R_0603_1608Metric;~;
+2;R95,R112;100 5%;Resistor_SMD:R_1206_3216Metric;~;
+2;R96,R113;2k2 5%;Resistor_SMD:R_0603_1608Metric;~;
+2;REL1,REL2;FTR-B3CA012Z;MY_Library:FTRB3CA012Z;https://www.tme.eu/Document/3d9fb13bc216892f8c7ae2000a20fad3/ftr-b3.pdf;
+2;RN1,RN2;CAT16-220J4LF;Resistor_SMD:R_Array_Concave_4x0603;~;22 5% x 4
+1;SD1;DM3AT-SF-PEJM5;MY_Library:microSD_HC_Hirose_DM3AT-SF-PEJM5;https://www.hirose.com/product/document?clcode=CL0609-0033-6-00&productname=DM3AT-SF-PEJ2M5&series=DM3&documenttype=Catalog&lang=en&documentid=D49662_en;
+5;SMA1,SMA2,SMA3,SMA4,SMA5;RF2-49B-T-00-50-G-HDW;MY_Library:SMA_Amphenol_901-143_Horizontal;https://www.tme.eu/Document/021bdd302fcfa7798d688ae3e277131c/RF2-49B-T-00-50-G-HDW.pdf;
+1;SW1;1571407-1;MY_Library:15714071;https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1654270-2&DocType=Catalog%20Section&DocLang=English&PartCntxt=1571407-1&DocFormat=pdf;
+1;SW2;FT2D-VM;MY_Library:FT2D-VM;https://www.tme.eu/Document/2047ec330ac5ba6170aadc24040ae5c3/FT%202%20x-VM_2020.pdf;
+1;T1;SISS27DN-T1-GE3;Package_SON:Diodes_PowerDI3333-8;https://4donline.ihs.com/images/VipMasterIC/IC/VISH/VISH-S-A0001851973/VISH-S-A0001851973-1.pdf?hkey=CECEF36DEECDED6468708AAF2E19C0C6;
+2;T2,T3;BC817;Package_TO_SOT_SMD:SOT-23;https://www.onsemi.com/pub/Collateral/BC818-D.pdf;
+1;U2;LD29150DT33R;Package_TO_SOT_SMD:TO-252-2;https://www.st.com/content/ccc/resource/technical/document/datasheet/cc/41/70/73/f5/e6/40/50/CD00003403.pdf/files/CD00003403.pdf/jcr:content/translations/en.CD00003403.pdf;
+1;U4;AP63200WU-7;Package_TO_SOT_SMD:TSOT-23-6;https://www.diodes.com/assets/Datasheets/AP63200-AP63201-AP63203-AP63205.pdf;
+1;U5;AP63203WU-7;Package_TO_SOT_SMD:TSOT-23-6;https://www.diodes.com/assets/Datasheets/AP63200-AP63201-AP63203-AP63205.pdf;
+1;U6;AM3T-1215D-RVZ;MY_Library:AM3T-RVZ;https://www.tme.eu/Document/a57e070afa1f26641597f362834e616e/AM3T-RVZ.pdf;
+1;U7;LT3046ATC+;MY_Library:DFN-12-1EP_3x3mm_P0.45mm_EP1.65x2.38mm;https://www.mouser.pl/datasheet/2/609/lt3046-3402305.pdf;
+1;U10;STM32H743VITx;Package_QFP:LQFP-100_14x14mm_P0.5mm;https://www.st.com/resource/en/datasheet/stm32h743vi.pdf;
+1;U11;FM24CL16B-GTR;Package_SO:SOIC-8_3.9x4.9mm_P1.27mm;https://www.infineon.com/dgdl/Infineon-FM24CL16B_16-Kbit_(2_K_8)_Serial_(I2C)_F-RAM-DataSheet-v13_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ec99cb241e9;
+1;U12;STLINK-V3MODS;MY_Library:STLINK-V3MODS;https://www.st.com/content/ccc/resource/technical/document/user_manual/group1/00/14/17/68/0f/01/48/01/DM00555046/files/DM00555046.pdf/jcr:content/translations/en.DM00555046.pdf;
+1;U13;USR-TCP232-T2;MY_Library:USR-TC232-T2;https://www.pusr.com/download/datasheet/USR-TCP232-T2_datasheet.pdf;
+1;U16;24AA02E48T-I/OT;Package_TO_SOT_SMD:SOT-23-5;http://ww1.microchip.com/downloads/en/DeviceDoc/21709J.pdf;
+1;U17;NC7WZ16;MY_Library:SOT65P210X110-6N;https://www.onsemi.com/pdf/datasheet/nc7wz16-d.pdf;
+1;U18;DAC8555IPW;Package_SO:TSSOP-16_4.4x5mm_P0.65mm;http://www.ti.com/lit/gpn/dac8555;
+1;U19;ADR443BRZ;Package_SO:SOIC-8_3.9x4.9mm_P1.27mm;https://www.analog.com/media/en/technical-documentation/data-sheets/adr440_441_443_444_445.pdf;
+1;U28;MCP6072-E/SN;Package_SO:SOIC-8_3.9x4.9mm_P1.27mm;http://www.ti.com/lit/ds/symlink/opa1612.pdf;
+2;U1,U3;LD29150DT50R;Package_TO_SOT_SMD:TO-252-2;https://www.st.com/content/ccc/resource/technical/document/datasheet/cc/41/70/73/f5/e6/40/50/CD00003403.pdf/files/CD00003403.pdf/jcr:content/translations/en.CD00003403.pdf;
+2;U14,U15;SN65MLVD040RGZT;MY_Library:VQFN-48-1EP_7x7mm_P0.5mm_EP4.1x4.1mm_ThermalVias;https://www.ti.com/lit/ds/symlink/sn65mlvd040.pdf;
+4;U20,U21,U22,U23;OPA1612;Package_SO:SOIC-8_3.9x4.9mm_P1.27mm;http://www.ti.com/lit/ds/symlink/opa1612.pdf;
+2;U24,U26;ADA4945-1;MY_Library:LFCSP-16;https://www.analog.com/media/en/technical-documentation/data-sheets/ada4945-1.pdf;
+2;U25,U27;MCP3561;Package_SO:SSOP-20_4.4x6.5mm_P0.65mm;https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP3561-2-4-Family-Data-Sheet-DS20006181C.pdf;
+2;U29,U30;LM4040AIM3-5.0;Package_TO_SOT_SMD:SOT-23;https://www.ti.com/lit/ds/symlink/lm4040-n.pdf?ts=1728475381621&ref_url=https%253A%252F%252Fwww.mouser.de%252F;
+2;U8,U9;LT3093IDD;MY_Library:DFN-12-1EP_3x3mm_P0.45mm_EP1.65x2.38mm;https://www.analog.com/media/en/technical-documentation/data-sheets/lt3093.pdf;
+1;X1;ASE-8.000MHZ-L-C-T;MY_Library:Oscillator_SMD_Abracon_ASE-4Pin_3.2x2.5mm;https://www.mouser.pl/datasheet/2/3/ASEseries-1774818.pdf;
